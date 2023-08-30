@@ -1,0 +1,46 @@
+{% extends 'common_user.html' %}
+{% block content %}
+{% load static %}
+
+<main class="main pages">
+    <div class="page-header breadcrumb-wrap">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index-2.html" rel="nofollow">
+            <i class="fi-rs-home mr-5"></i>Home </a>
+          <span></span> Pages <span></span> Contact
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-8 col-lg-10 m-auto">
+        <div class="contact-from-area padding-20-row-col">
+          <br>
+          <h2 class="mb-10 text-center">Leave A Message</h2>
+          <p class="text-muted  text-center mb-30 font-sm">Our staff will call back later and answer your questions.</p>
+          <form   method="POST" novalidate > {% csrf_token %}
+            <div class="row">
+                {% for i in form %}
+                {{form.no_field_errors}}
+                <div class="col-lg-6 col-md-6">
+                    <div class="input-style mb-20">
+                        {{i}}
+                        <span class='errorlist'>{{i.errors}}</span>
+                    </div>
+                </div>
+                {% endfor %}
+              </div>
+            <button class="submit submit-auto-width" type="submit" name='submit'>Send message</button>
+          </form>
+          <br>
+          <p class="form-messege"></p>
+        </div>
+      </div>
+    </div>
+    </section>
+    </div>
+    </div>
+    </div></div>
+  </main>
+
+{% endblock content %}

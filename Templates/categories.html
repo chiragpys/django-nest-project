@@ -1,0 +1,95 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block content %}
+<div class="page-section inner-page-sec-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <!-- My Account Tab Menu Start -->
+          <div class="categories-dropdown-wrap col-lg-1-5 primary-sidebar">
+            <div class="sidebar-widget widget-category-2 mb-30">
+              <h5 class="section-title style-1 mb-30">Category</h5>
+              <ul> 
+              {% for category in category %} 
+                <li>
+                <a href="{% url 'Nest:search_category' category.id %}">{{category}}</a>
+                </li> 
+              {% endfor %}
+            </div>
+          </div>
+          <!-- My Account Tab Menu End -->
+          <!-- My Account Tab Content Start -->
+          <div class="col-lg-9 col-12 mt--30 mt-lg--">
+            <div class="tab-content" id="myaccountContent">
+              <!-- Single Tab Content Start -->
+              <div class="tab-pane fade show active" role="tabpanel">
+                <div class="myaccount-content">
+                  <center>
+                    <h3>SEARCH RESULT</h3>
+                  </center>
+                  <div class="account-details-form">
+                    <div class="shop-product-wrap with-pagination row space-db--30 shop-border"> 
+                      {% for i in view_product %} 
+                      <div class="col-lg-1-4 col-md-3 col-12 col-sm-6">
+                        <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".0s">
+                          <div class="product-img-action-wrap">
+                            <div class="product-img product-img-zoom">
+                              <a href="{% url 'Nest:view_product' i.id %}">
+                                <img class="default-img" src="{{i.product_photo.url}}" alt="" />
+                                <img class="hover-img" src="{{i.product_photo.url}}" alt="" />
+                              </a>
+                            </div>
+                            <div class="product-action-1"></div>
+                            <div class="product-badges product-badges-position product-badges-mrg">
+                              <span class="hot">Hot</span>
+                            </div>
+                          </div>
+                          <div class="product-content-wrap">
+                            <div class="product-category">
+                              <a href="">{{i.categories}}</a>
+                            </div>
+                            <h2>
+                              <a href="{% url 'Nest:view_product' i.id %}">{{i.product_name}}</a>
+                            </h2>
+                            <div>
+                              <span class="font-small text-muted">By <a href="">{{i.user.vendor_profile.c_name}}</a>
+                              </span>
+                            </div>
+                            <div class="product-card-bottom">
+                              <div class="product-price">
+                                <span>₹ {{i.product_price}}</span>
+                                <span class="old-price">{{i.old_price}}</span>
+                              </div>
+                              <div class="add-cart">
+                                <a class="add" href="{% url 'Nest:view_product' i.id %}">
+                                  <i class="fi-rs-eye mr-5"></i>View </a>
+                              </div>
+                            </div>
+                            <br>
+                            <div class="update">
+                              <a href="#">
+                                <button type="submit" class="button button-add-to-cart">
+                                  <i class="fi-rs-shopping-cart"></i>Add to cart </button>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div> 
+                      {% endfor %} 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Single Tab Content End -->
+            </div>
+          </div>
+          <!-- My Account Tab Content End -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock content %}

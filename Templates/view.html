@@ -1,0 +1,369 @@
+{% extends "common.html"%}
+{% load static %}
+{% block content %}
+
+
+<main class="main">
+  <div class="page-header breadcrumb-wrap">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" rel="nofollow">
+          <i class="fi-rs-home mr-5"></i>Home </a>
+        <span></span>
+        <a href="../shop/super/fashion-accessories.html">Fashion &amp; Accessories</a>
+        <span></span> Seeds of Change Organic
+      </div>
+    </div>
+  </div>
+  <div class="container mb-30">
+    <div class="row">
+      <div class="col-xl-11 col-lg-12 m-auto">
+        <div class="row">
+          <div class="col-xl-9">
+            <div class="product-detail accordion-detail">
+              <div class="row mb-50 mt-30">
+                <div class="col-md-6 col-sm-12 col-xs-12 mb-md-0 mb-sm-5">
+                  <div class="detail-gallery">
+                    <span class="zoom-icon">
+                      <i class="fi-rs-search"></i>
+                    </span>
+                    <div class="product-image-slider">
+                      <figure class="border-radius-10">
+                        <img src="{{form.product_photo.url}}" alt="" />
+                      </figure>
+                    </div>
+                    <div class="slider-nav-thumbnails">
+                      <div>
+                        <img src="{{form.product_photo.url}}" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                  <div class="detail-info pr-30 pl-30">
+                    <h3 class="title-detail">{{form.product_name}}</h3>
+                    <div class="product-detail-rating">
+                      <div class="product-rate-cover text-end">
+                        <div class="product-rate d-inline-block">
+                          <div class="product-rating" style="width: 40%"></div>
+                        </div>
+                        <span class="font-small ml-5 text-muted"> (0 reviews)</span>
+                      </div>
+                    </div>
+                    <div class="clearfix product-price-cover">
+                      <div class="product-price primary-color float-left">
+                        <span class="current-price text-brand">₹ {{form.product_price}}</span>
+                        <span>
+                          <span class="old-price font-md ml-15">₹ {{form.old_price}}</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="short-desc mb-30">
+                      <p class="font-lg">
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi..</p>. </p>
+                    </div>
+                    <div class="detail-extralink mb-50">
+                      <div class="detail-qty border radius">
+                        <a href="#" class="qty-down">
+                          <i class="fi-rs-angle-small-down"></i>
+                        </a>
+                        <span class="qty-val">1</span>
+                        <a href="#" class="qty-up">
+                          <i class="fi-rs-angle-small-up"></i>
+                        </a>
+                      </div>
+                      <form action="https://nest.apexcode.info/add_to_cart/" method="POST">
+                        <div class="product-extra-link2">
+                          <input type="hidden" name="csrfmiddlewaretoken" value="BvrrK5cZwqdwdlDicCzW1w7EqOeqzaBVkkMCjAzFkZlzFjNFaVBPxOrdLT0wAOi3">
+                          <input type="hidden" id="qty-input" name="qyt" type="text">
+                          <input type="hidden" value="13" name="product_id">
+                          <input type="hidden" value="14.0" name="product_Price">
+                          <button type="submit" class="button button-add-to-cart">
+                            <i class="fi-rs-shopping-cart"></i>Add to cart </button>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="font-xs">
+                      <ul class="mr-50 float-start">
+                        <li class="mb-5">Category: <span class="text-brand">{{form.categories}}</span>
+                        </li>
+                        <li class="mb-5">Date: <span class="text-brand">{{form.date}}</span>
+                        </li>
+                        <li>PIECE: <span class="text-brand">None</span>
+                        </li>
+                      </ul>
+                      <ul class="float-start">
+                        <li class="mb-5">SKU: <span class="in-stock text-brand ml-5">None</span>
+                        </li>
+                        <li class="mb-5">Tags: <span class="in-stock text-brand ml-5">None</span>
+                        </li>
+                        <li>Stock: <span class="in-stock text-brand ml-5">{{form.stock}}</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <div class="tab-style3">
+                  <ul class="nav nav-tabs text-uppercase">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">Description</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info">Additional info</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="Vendor-info-tab" data-bs-toggle="tab" href="#Vendor-info">Vendor</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews (0)</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content shop_info_tab entry-main-content">
+                    <div class="tab-pane fade show active" id="Description">
+                      {{form.description}}
+                      {% comment %} <div class="">
+                        <p>Uninhibited carnally hired played in whimpered dear gorilla koala depending and much yikes off far quetzal goodness and from for grimaced goodness unaccountably and meadowlark near unblushingly crucial scallop tightly neurotic hungrily some and dear furiously this apart.</p>
+                        <p>Spluttered narrowly yikes left moth in yikes bowed this that grizzly much hello on spoon-fed that alas rethought much decently richly and wow against the frequent fluidly at formidable acceptably flapped besides and much circa far over the bucolically hey precarious goldfinch mastodon goodness gnashed a jellyfish and one however because.</p>
+                        <ul>
+                          <li>Type Of PackingBottle</li>
+                          <li>ColorGreen, Pink, Powder Blue, Purple</li>
+                          <li>Quantity Per Case100ml</li>
+                          <li>Ethyl Alcohol70%</li>
+                          <li>Piece In OneCarton</li>
+                        </ul>
+                        <p>Laconic overheard dear woodchuck wow this outrageously taut beaver hey hello far meadowlark imitatively egregiously hugged that yikes minimally unanimous pouted flirtatiously as beaver beheld above forward energetic across this jeepers beneficently cockily less a the raucously that magic upheld far so the this where crud then below after jeez enchanting drunkenly more much wow callously irrespective limpet.</p>
+                        <p>Packaging &amp; Delivery</p>
+                        <p>Less lion goodness that euphemistically robin expeditiously bluebird smugly scratched far while thus cackled sheepishly rigid after due one assenting regarding censorious while occasional or this more crane went more as this less much amid overhung anathematic because much held one exuberantly sheep goodness so where rat wry well concomitantly.</p>
+                        <p>Scallop or far crud plain remarkably far by thus far iguana lewd precociously and and less rattlesnake contrary caustic wow this near alas and next and pled the yikes articulate about as less cackled dalmatian in much less well jeering for the thanks blindly sentimental whimpered less across objectively fanciful grimaced wildly some wow and rose jeepers outgrew lugubrious luridly irrationally attractively dachshund.</p>
+                        <p>Suggested Use</p>
+                        <ul>
+                          <li>Refrigeration not necessary.</li>
+                          <li>Stir before serving</li>
+                        </ul>
+                        <p>Other Ingredients</p>
+                        <ul>
+                          <li>Organic raw pecans, organic raw cashews.</li>
+                          <li>This butter was produced using a LTG (Low Temperature Grinding) process</li>
+                          <li>Made in machinery that processes tree nuts but does not process peanuts, gluten, dairy or soy</li>
+                        </ul>
+                        <p>Warnings</p>
+                        <ul>
+                          <li>Oil separation occurs naturally. May contain pieces of shell.</li>
+                        </ul>
+                      </div> {% endcomment %}
+                    </div>
+                    <div class="tab-pane fade " id="Additional-info">
+                      <table class="font-md">
+                        <tbody>
+                          <tr class="stand-up">
+                            <th>Price</th>
+                            <td>
+                              <p>₹ {{form.product_price}}</p>
+                            </td>
+                          </tr>
+                          <tr class="folded-wo-wheels">
+                            <th>AVAILABILITY</th>
+                            <td>
+                              <p> {{form.stock}} in stock</p>
+                            </td>
+                          </tr>
+                          <tr class="folded-w-wheels">
+                            <th>PIECES PER SET</th>
+                            <td>
+                              <p>None</p>
+                            </td>
+                          </tr>
+                          <tr class="door-pass-through">
+                            <th>WEIGHT PER SET</th>
+                            <td>
+                              <p>None</p>
+                            </td>
+                          </tr>
+                          <tr class="weight-wo-wheels">
+                            <th>Super Category</th>
+                            <td>
+                              <p>Fashion &amp; Accessories</p>
+                            </td>
+                          </tr>
+                          <tr class="weight-capacity">
+                            <th>Main Category</th>
+                            <td>
+                              <p>Clothing</p>
+                            </td>
+                          </tr>
+                          {% comment %} <tr class="width">
+                            <th>Sub Category</th>
+                            <td>
+                              <p>Kids Jumpsuits &amp; Sets</p>
+                            </td>
+                          </tr> {% endcomment %}
+                          {% comment %} <tr class="handle-height-ground-to-handle">
+                            <th>Mini Category</th>
+                            <td>
+                              <p>Kids Costumes</p>
+                            </td>
+                          </tr> {% endcomment %}
+                          <tr class="frame">
+                            <th>SKU</th>
+                            <td>
+                              <p>None </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                
+                    <div class="tab-pane fade" id="Vendor-info">
+                      <div class="vendor-logo d-flex mb-30">
+                        <img src="{{name.image.url}}" width="64" height="50" alt="" />
+                        <div class="vendor-name ml-15">
+                          <h6>
+                            <a href="">{{name.first_name}}</a>
+                          </h6>
+                        </div>
+                      </div>
+                      <ul class="contact-infor mb-20">
+                        <li>
+                          <img src="../static/assets/imgs/theme/icons/icon-location.svg" alt="" />
+                          <strong>Address: </strong>
+                          <span>{{name.address}}</span>
+                        </li>
+                        <li>
+                          <img src="../static/assets/imgs/theme/icons/icon-contact.svg" alt="" />
+                          <strong>Contact Seller:</strong>
+                          <span>(+91) {{name.phone}}</span>
+                        </li>
+                      </ul>
+                      <p>Got a smooth, buttery spread in your fridge? Chances are good that it&#x27;s Good Chef. This brand made Lionto&#x27;s list of the most popular grocery brands across the country. </p>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="Reviews">
+                      <div class="comments-area">
+                        <div class="row">
+                          <div class="col-lg-8">
+                            <h4 class="mb-30">Customer Reviews</h4>
+                            <div class="comment-list"></div>
+                          </div>
+                          <div class="col-lg-4">
+                            <h4 class="mb-30">Customer reviews</h4>
+                            <div class="d-flex mb-30">
+                              <div class="product-rate d-inline-block mr-15">
+                                <div class="product-rating" style="width: 40%"></div>
+                              </div>
+                              <h6>0 out of 5</h6>
+                            </div>
+                            <div class="progress">
+                              <span>5 star</span>
+                              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                            <div class="progress">
+                              <span>4 star</span>
+                              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                            <div class="progress">
+                              <span>3 star</span>
+                              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                            <div class="progress">
+                              <span>2 star</span>
+                              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                            <div class="progress mb-30">
+                              <span>1 star</span>
+                              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="comment-form">
+                        <h4 class="mb-15">Add a review</h4>
+                        <div class="product-rate d-inline-block mb-30"></div>
+                        <div id="message-rate"></div>
+                        <div class="form-group">
+                          <label>Quality</label>
+                          <div class="rate">
+                            <input type="radio" id="first" name="star" value="1">
+                            <label for="first" title="text">1 star</label>
+                            <input type="radio" id="second" name="star" value="2">
+                            <label for="second" title="text">2 star</label>
+                            <input type="radio" id="third" name="star" value="3">
+                            <label for="third" title="text">3 star</label>
+                            <input type="radio" id="fourth" name="star" value="4">
+                            <label for="fourth" title="text">4 star</label>
+                            <input type="radio" id="fifth" name="star" value="5" checked="checked">
+                            <label for="fifth" title="text">5 star</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-8 col-md-12">
+                            <form class="form-contact comment_form form-rating" id="13">
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="form-group">
+                                    <textarea class="form-control w-100" name="client_message" id="client-message" cols="30" rows="9" placeholder="Write Comment" required></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <button type="submit" class="button button-contactForm">Submit Review</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 primary-sidebar sticky-sidebar mt-30">
+            <div class="sidebar-widget widget-vendor mb-30 bg-grey-9 box-shadow-none">
+              <h5 class="section-title style-3 mb-20">Vendor</h5>
+              <div class="vendor-logo d-flex mb-30">
+                <img src="{{name.image.url}}" width="64" height="50" alt="Nature Food" />
+                <div class="vendor-name ml-15">
+                  <h6>
+                    <a href="">{{name.user}}</a>
+                  </h6>
+                </div>
+              </div>
+              <ul class="contact-infor">
+                <li>
+                  <img src="../static/assets/imgs/theme/icons/icon-location.svg" alt="" />
+                  <strong>Address: </strong>
+                  <span>{{name.address}}</span>
+                </li>
+                <li>
+                  <img src="../static/assets/imgs/theme/icons/icon-contact.svg" alt="" />
+                  <strong>Contact Seller:</strong>
+                  <span>(+91) - {{name.phone}}</span>
+                </li>
+                <li class="hr">
+                  <span></span>
+                </li>
+              </ul>
+              <ul></ul>
+              <p>Become a Vendor? <a href="{% url 'vendor:signup'%}"> Register now</a>
+              </p>
+            </div>
+            <div class="banner-img wow fadeIn mb-lg-0 animated d-lg-block d-none">
+              <a href="haagen-dazs-caramel-cone-ice-cream-ketchup.html">
+                <img src="../media/ads/shop-ad/banner-11.png" alt="" />
+              </a>
+              {% comment %} <div class="banner-text">
+                <span>selem</span>
+                <a href="haagen-dazs-caramel-cone-ice-cream-ketchup.html">
+                  <h4> Save 17% on Oganic Juice </h4>
+                </a>
+              </div> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}

@@ -1,0 +1,80 @@
+{% extends "common_vendor.html"%}
+{% load static %}
+{% block content %}
+
+
+<section class="product-tabs section-padding position-relative">
+	<div class="container">
+	  <div style='text-align:center'>
+		<h3 style='text-align:center'>Welcome to Vendor Dashboard {{v_name | title }}</h3><br><br>
+	  </div>
+	  <div class="tab-content" id="myTabContent">
+		<div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
+		  <div class="row product-grid-4">
+			{% for i in form %}
+			<div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+			  <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".0s">
+				<div class="product-img-action-wrap">
+				  <div class="product-img product-img-zoom">
+					<a href="{% url 'vendor:view_product' i.id %}">
+					  <img class="default-img" src="{{i.product_photo.url}}" alt="" />
+					  <img class="hover-img" src="{{i.product_photo.url}}" alt="" />
+					</a>
+				  </div>
+				  <div class="product-action-1"></div>
+				  <div class="product-badges product-badges-position product-badges-mrg">
+					<span class="hot">Hot</span>
+				  </div>
+				</div>
+				<div class="product-content-wrap">
+				  <div class="product-category">
+					<a href="">{{i.categories}}</a>
+				  </div>
+				  <h2>
+					<a href="{% url 'vendor:view_product' i.id %}">{{i.product_name}}</a>
+				  </h2>
+
+				  {% if name %}
+				  {% for j in name%}
+				  <div>
+					<span class="font-small text-muted">By <a href="">{{j.c_name}}</a>
+					</span>
+				  </div>
+				  {% endfor %}
+				  {% endif%}
+				  <div class="product-card-bottom">
+					<div class="product-price">
+					  <span>₹ {{i.product_price}}</span>
+					  <span class="old-price">{{i.old_price}}</span>
+					</div>
+					<div class="add-cart">
+					  <a class="add" href="{% url 'vendor:view_product' i.id %}">
+						<i class="fi-rs-eye mr-5"></i>View </a>
+					</div>
+				  </div><br>
+					<div class="update">
+						<a href="{% url 'vendor:product_update' i.id %}">
+						<button type="button" id="submit" name="submit" class="btn btn-primary">Update</button></a>
+						{% comment %} <a href="{% url 'vendor:product_delete' i.id %}"> {% endcomment %}
+						<button type="button" id="submit" name="submit" class="btn btn-secondary" onclick="myFunction()">Delete</button>
+						
+					</div>
+				</div>
+				
+			  </div>
+			</div>
+			<script>
+				function myFunction() {
+					if (confirm("Are you sure you want to Delete!") == true) {
+						window.location='{% url 'vendor:product_delete' i.id  %}'
+					  } else {
+						window.location='{% url 'vendor:show_product' %}'
+					  }
+				}
+			</script>
+			{% endfor %}
+  </section>
+ 
+
+  </main>
+{% endblock content %}

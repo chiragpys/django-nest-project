@@ -1,0 +1,258 @@
+{% extends "common_user.html"%}
+{% load static %}
+{% block content %}
+
+
+
+    {% comment %} <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Profile Page</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <style>
+            body {
+                margin: 0;
+                padding-top: 40px;
+                color: #2e323c;
+                background: #f5f6fa;
+                position: relative;
+                height: 100%;
+            }
+            .account-settings .user-profile {
+                margin: 0 0 1rem 0;
+                padding-bottom: 1rem;
+                text-align: center;
+            }
+            .account-settings .user-profile .user-avatar {
+                margin: 0 0 1rem 0;
+            }
+            .account-settings .user-profile .user-avatar img {
+                width: 90px;
+                height: 90px;
+                -webkit-border-radius: 100px;
+                -moz-border-radius: 100px;
+                border-radius: 100px;
+            }
+            .account-settings .user-profile h5.user-name {
+                margin: 0 0 0.5rem 0;
+            }
+            .account-settings .user-profile h6.user-email {
+                margin: 0;
+                font-size: 0.8rem;
+                font-weight: 400;
+                color: #9fa8b9;
+            }
+            .account-settings .about {
+                margin: 2rem 0 0 0;
+                text-align: center;
+            }
+            .account-settings .about h5 {
+                margin: 0 0 15px 0;
+                color: #007ae1;
+            }
+            .account-settings .about p {
+                font-size: 0.825rem;
+            }
+            .form-control {
+                border: 1px solid #cfd1d8;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                border-radius: 2px;
+                font-size: .825rem;
+                background: #ffffff;
+                color: #2e323c;
+            }
+            
+            .card {
+                background: #ffffff;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                border: 0;
+                margin-bottom: 1rem;
+            }            
+        </style>
+    </head> {% endcomment %}
+    <body>
+        <form class="form" method="POST"  enctype="multipart/form-data" novalidate> {% csrf_token %}
+        <div class="container">
+            <div class="row gutters">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="account-settings">
+                        <div class="user-profile">
+                            <div class="user-avatar">
+                                    <div class="text-center"> 
+                                        {% if not img %} 
+                                            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar"> 
+                                        {% else %} 
+                                            <img src="{{img.url}}" class="avatar img-circle img-thumbnail" alt="avatar">
+                                        {% endif %} 
+                                        <h6>Upload a different photo...</h6>
+                                        {{profile_form.image}}
+                                    </div>
+                            </div>
+                            <h5 class="user-name" style="text-align:center">{{name}}</h5>
+                            {% comment %} <h6 class="user-email">{{email}}</h6>  {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        {% comment %} <form method="POST" enctype="multipart/form-data" novalidate> {% csrf_token %}  {% endcomment %}
+                            {{ user_form.non_field_errors }}
+                            {{ profile_form.non_field_errors }}
+                        <div class="row gutters">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <h5 class="mb-2 text-primary">Personal Details</h5>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="username">{{user_form.username.label_tag}}</label>
+                                    {{user_form.username}}
+                                    <span class="errorlist">{{user_form.username.errors}}</span>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="email">{{user_form.email.label_tag}}</label>
+                                    {{user_form.email}}
+                                    <span class="errorlist">{{user_form.username.errors}}</span>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="first_name">{{profile_form.first_name.label_tag}}</label>
+                                    {{profile_form.first_name}}
+                                    <span class="errorlist">{{profile_form.first_name.errors}}</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="last_name">{{profile_form.last_name.label_tag}}</label>
+                                    {{profile_form.last_name}}
+                                    <span class="errorlist">{{profile_form.last_name.errors}}</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="phone">{{profile_form.phone.label_tag}}</label>
+                                    {{profile_form.phone}}
+                                    <span class="errorlist">{{profile_form.phone.errors}}</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="age">{{profile_form.age.label_tag}}</label>
+                                    {{profile_form.age}}
+                                    <span class="errorlist">{{profile_form.age.errors}}</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="gender">{{profile_form.gender.label_tag}}</label>
+                                    {{profile_form.gender}}
+                                    <span class="errorlist">{{profile_form.gender.errors}}</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="location">{{profile_form.location.label_tag}}</label>
+                                    {{profile_form.location}}
+                                    <span class="errorlist">{{profile_form.location.errors}}</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="address">{{profile_form.address.label_tag}}</label>
+                                    {{profile_form.address}}
+                                    <span class="errorlist">{{profile_form.address.errors}}</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        {% comment %} <div class="row gutters">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <h6 class="mt-3 mb-2 text-primary">Company Details</h6>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="c_name">{{profile_form.c_name.label_tag}}</label>
+                                    {{profile_form.c_name}}
+                                    <span class="errorlist">{{profile_form.c_name.errors}}</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="c_email">{{profile_form.c_email.label_tag}}</label>
+                                    {{profile_form.c_email}}
+                                    <span class="errorlist">{{profile_form.c_email.errors}}</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="c_website">{{profile_form.c_website.label_tag}}</label>
+                                    {{profile_form.c_website}}
+                                    <span class="errorlist">{{profile_form.c_website.errors}}</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="c_des">{{profile_form.c_des.label_tag}}</label>
+                                    {{profile_form.c_des}}
+                                    <span class="errorlist">{{profile_form.c_des.errors}}</span>
+                                    
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+                        <br>
+                        <div class="row gutters">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="text-right">
+                                    <div >
+                                        <button type="submit" id="submit" name="submit" class="btn btn-primary">submit</button><br><br>
+                                    </div>
+                                    <a href='{% url "User:Set_password"%}'><button type="button" id="submit" name="submit" class="btn btn-primary">Set New Password</button></a>
+                                    <a href='{% url "User:logout"%}'><button type="button" id="submit" name="submit" class="btn btn-secondary">Logout</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                        {% if messages %}
+                        <br>
+                        {% for i in messages %}
+                        <div class="alert alert-{{i.tags}}" role="alert" style="text-align:center">
+                            {{i}}
+                          </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+        {% comment %} <a href='{% url "Auth:logout"%}'><button>Logout</button></a>
+        <a href='{% url "Auth:set_password"%}'><button>Set New Password</button></a> {% endcomment %}
+        </form>
+        <script src="" async defer></script>
+    </body>
+
+
+{% endblock content %}

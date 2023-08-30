@@ -1,0 +1,481 @@
+{%load static %}
+<!DOCTYPE html>
+<html class="no-js'" lang="en">
+
+<!-- Mirrored from nest.apexcode.info/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Dec 2022 05:13:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<title>Nest - Multipurpose eCommerce HTML Template</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<meta name="description" content="We specialise in design and improve product and se" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:locale" content="en-us" />
+<meta property="og:title" content="Nest - Multipurpose eCommerce HTML Template" />
+<meta property="og:site_name" content="Nest" />
+<meta property="og:description" content="We specialise in design and improve product and se" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="index.html" />
+<meta property="og:image" content="{% static 'media/site_logo/imgs/logo_VKBBW51_1.png' %}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Nest - Multipurpose eCommerce HTML Template" />
+<meta name="twitter:description" content="We specialise in design and improve product and se" />
+<meta name="twitter:site" content="@Nest" />
+
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'media/site_logo/imgs/favicon_p4HhDzm_1.png' %}" />
+
+<link rel="stylesheet" href="{% static 'assets/css/plugins/animate.min.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+</head>
+<body>
+<header class="header-area header-style-1 header-style-5 header-height-2">
+</select>
+</form>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="header-middle header-middle-ptb-1 d-none d-lg-block">
+<div class="container">
+<div class="header-wrap">
+<div class="logo logo-width-1">
+<a href="{% url 'Nest:show_product'%}"><img src="{% static 'media/site_logo/imgs/logo_VKBBW51_1.png' %}" alt="Nest" /></a>
+</div>
+<div class="header-right">
+<div class="search-style-2">
+<form method="GET" action="{% url 'Nest:search' %}" class="search-style-2">
+{% comment %} <input type="hidden" name="csrfmiddlewaretoken" value="rPITJcf8RrJmFAYPf5Xj1LQULung24apaE34iHCOF0Rp7y8cdoZcx3at6z9m3IRx"> {% endcomment %}
+<select name="Product_categories" class="select-active  category-search" id="Product_categories">
+
+<option>All Categories</option>
+<option>Food &amp; Beverage</option>
+<option>Beauty &amp; Fragrances</option>
+<option>Office &amp; Stationery</option>
+<option>Consumer Electronics</option>
+<option>Fashion &amp; Accessories</option>
+<option>Home &amp; Furniture</option>
+<option>Health &amp; Personal Care</option>
+<option>Construction &amp; Hardware</option>
+<option>Sports &amp; Fitness</option>
+<option>Toys</option>
+<option>Automotive</option>
+</select>
+
+<input type="text" name="q" placeholder="Search for items..."  required>
+<button type="submit"><i class="fi-rs-search"></i></button>
+</form>
+</div>
+<div class="header-action-right">
+<div class="header-action-2">
+<div class="header-action-icon-2">
+<a class="mini-cart-icon" href="{% url 'Nest:cart'%}">
+<img alt="Nest" src="{% static 'assets/imgs/theme/icons/icon-cart.svg' %}" />
+<span class="pro-count blue">0</span>
+</a>
+<a href="{% url 'Nest:cart'%}"><span class="lable">Cart</span></a>
+</div>
+<div class="header-action-icon-2">
+<a href="dashboard/index.html">
+<img class="svgInject" alt="Nest" src="{% static 'assets/imgs/theme/icons/icon-user.svg' %}" />
+</a>
+<a href=""><span class="lable ml-0">Account</span></a>
+<div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
+<ul>
+<li><a href="{% url 'User:login'%}"><i class="fi fi-rs-user mr-10"></i>Login</a></li>
+<li><a href="{% url 'User:signup'%}"><i class="fi fi-rs-user-add mr-10"></i>Register</a></li>
+{% comment %} {% if request.session.user_admin %}
+<li><a href="{% url 'User:profile'%}"><i class="fi fi-rs-user-add mr-10"></i>Profile</a></li>
+<li><a href="{% url 'User:logout'%}"><i class="fi fi-rs-user-add mr-10"></i>Logout</a></li>
+{% endif %} {% endcomment %}
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="header-bottom header-bottom-bg-color sticky-bar stick">
+<div class="container">
+<div class="header-wrap header-space-between position-relative">
+<div class="logo logo-width-1 d-block d-lg-none">
+<a href="index.html"><img src="{% static 'media/site_logo/imgs/logo_VKBBW51_1.png' %}" alt="Nest" /></a>
+</div>
+<div class="header-nav d-none d-lg-flex">
+<div class="main-categori-wrap d-none d-lg-block">
+<a class="categories-button-active" href="#">
+{% comment %} <span class="fi-rs-apps"></span> <span class="et">Trending</span> Categories {% endcomment %}
+{% comment %} <i class="fi-rs-angle-down"></i> {% endcomment %}
+</a>
+<div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
+<div class="d-flex categori-dropdown-inner">
+</div>
+</div>
+</div>
+<div class="main-menu main-menu-padding-1 main-menu-lh-2 font-heading">
+<nav>
+<ul class="ms-auto">
+<li>
+<a class="active" href="{% url 'Nest:show_product'%}">Home</a>
+<li class="position-static">
+<a href="{% url 'Nest:categories_product'%}">Categories </a>
+</li>
+{% comment %} <li>
+<a href="supplier-list/index.html">Stores</a>
+</li> {% endcomment %}
+<li>
+<a href="{% url "Nest:about_us" %}">About Us</a>
+</li>
+<li>
+<a href="{% url "Nest:contact" %}">Contact</a>
+</li>
+{% comment %} {% if not request.session.user_admin %} {% endcomment %}
+<li style="margin-left:800px;
+height:10px;
+justify-content: center;
+align-items: center;
+border-radius: 5px;
+padding: 5px 20px;">
+<a  href="{% url 'vendor:login' %}" target="_blank">
+Become a Vendor</a>
+</li>
+{% comment %} {% endif %} {% endcomment %}
+</ul>
+
+</nav>
+</div>
+</div>
+<div class="header-action-icon-2 d-block d-lg-none">
+<div class="burger-icon burger-icon-white">
+<span class="burger-icon-top"></span>
+<span class="burger-icon-mid"></span>
+<span class="burger-icon-bottom"></span>
+</div>
+</div>
+<div class="header-action-right d-block d-lg-none">
+<div class="header-action-2">
+<div class="header-action-icon-2">
+<a href="dashboard/index.html">
+<img alt="Nest" src="{% static 'assets/imgs/theme/icons/icon-user.svg' %}" />
+</a>
+</div>
+<div class="header-action-icon-2">
+<a class="mini-cart-icon" href="cart/index.html">
+<img alt="Nest" src="{% static 'assets/imgs/theme/icons/icon-cart.svg' %}" />
+<span class="pro-count white">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+
+
+{% block content %}{% endblock content %}
+
+
+
+<footer class="main">
+    <section class="newsletter mb-15 wow animate__animated animate__fadeIn">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="position-relative newsletter-inner">
+    <div class="newsletter-content">
+    <h2 class="mb-20">
+    Stay home & get your daily <br />
+    needs from our shop
+    </h2>
+    <p class="mb-45">Start You'r Daily Shopping with <span class="text-brand">Nest</span></p>
+
+    <form method="get" action="Newsletter/" class="form-subcriber d-flex ">
+    <input name="email"  type="text" placeholder="Your emaill address" required>
+    <button class="btn" type="submit" value='submit'>Subscribe</button>
+    </form>
+    
+    </div>
+    <img src="{% static 'media/site_logo/imgs/banner-9.png' %}" alt="newsletter" />
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <section class="featured section-padding">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-1-5 col-md-4 col-12 col-sm-6 mb-md-4 mb-xl-0">
+    <div class="banner-left-icon d-flex align-items-center wow animate__animated animate__fadeInUp" data-wow-delay="0">
+    <div class="banner-icon">
+    <img src="{% static 'assets/imgs/theme/icons/icon-1.svg' %}" alt="" />
+    </div>
+    <div class="banner-text">
+    <h3 class="icon-box-title">Best prices & offers</h3>
+    <p>Orders $50 or more</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+    <div class="banner-left-icon d-flex align-items-center wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
+    <div class="banner-icon">
+    <img src="{% static 'assets/imgs/theme/icons/icon-2.svg' %}" alt="" />
+    </div>
+    <div class="banner-text">
+    <h3 class="icon-box-title">Free delivery</h3>
+    <p>24/7 amazing services</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+    <div class="banner-left-icon d-flex align-items-center wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
+    <div class="banner-icon">
+    <img src="{% static 'assets/imgs/theme/icons/icon-3.svg' %}" alt="" />
+    </div>
+    <div class="banner-text">
+    <h3 class="icon-box-title">Great daily deal</h3>
+    <p>When you sign up</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+    <div class="banner-left-icon d-flex align-items-center wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
+    <div class="banner-icon">
+    <img src="{% static 'assets/imgs/theme/icons/icon-4.svg' %}" alt="" />
+    </div>
+    <div class="banner-text">
+    <h3 class="icon-box-title">Wide assortment</h3>
+    <p>Mega Discounts</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+    <div class="banner-left-icon d-flex align-items-center wow animate__animated animate__fadeInUp" data-wow-delay=".4s">
+    <div class="banner-icon">
+    <img src="{% static 'assets/imgs/theme/icons/icon-5.svg' %}" alt="" />
+    </div>
+    <div class="banner-text">
+    <h3 class="icon-box-title">Easy returns</h3>
+    <p>Within 30 days</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-1-5 col-md-4 col-12 col-sm-6 d-xl-none">
+    <div class="banner-left-icon d-flex align-items-center wow animate__animated animate__fadeInUp" data-wow-delay=".5s">
+    <div class="banner-icon">
+    <img src="{% static 'assets/imgs/theme/icons/icon-6.svg' %}" alt="" />
+    </div>
+    <div class="banner-text">
+    <h3 class="icon-box-title">Safe delivery</h3>
+    <p>Within 30 days</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <section class="section-padding footer-mid">
+    <div class="container pt-15 pb-20">
+    <div class="row">
+    <div class="col">
+    <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0 wow animate__animated animate__fadeInUp" data-wow-delay="0">
+    <div class="logo mb-30">
+    <a href="{% url 'Nest:show_product'%}" class="mb-15"><img src="{% static 'media/site_logo/imgs/logo_VKBBW51_1.png' %}" alt="Nest" /></a>
+    <p class="font-lg text-heading"></p>
+    </div>
+    <ul class="contact-infor">
+    <li><img src="{% static 'assets/imgs/theme/icons/icon-location.svg' %}" alt="" /><strong>Address: </strong> <span>Ahmedabad Gujarat.</span></li>
+    <li><img src="{% static 'assets/imgs/theme/icons/icon-contact.svg' %}" alt="" /><strong>Call Us:</strong><span> 7878950100</span></li>
+    <li><img src="{% static 'assets/imgs/theme/icons/icon-email-2.svg' %}" alt="" /><strong>Email:</strong><span>chiragsondagar06@gmail.com</span></li>
+    <li><img src="{% static 'assets/imgs/theme/icons/icon-clock.svg' %}" alt="" /><strong>Hours:</strong><span>10:00 - 18:00, Mon - Sat</span></li>
+    <li><strong>e commerce : Chirag Sondagar </strong></li>
+    </ul>
+    </div>
+    </div>
+    <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
+    <h4 class="widget-title">Company</h4>
+    <ul class="footer-list mb-sm-5 mb-md-0">
+    <li><a href=#>About Us</a></li>
+    <li><a href=#>Terms Of Service</a></li>
+    <li><a href=#>Refund Policy</a></li>
+    </ul>
+    </div>
+    <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
+    <h4 class="widget-title">Pages</h4>
+    <ul class="footer-list mb-sm-5 mb-md-0">
+    <li><a href="cart/index.html">View Cart</a></li>
+    
+    <li><a href="supplier-register/index.html">Become a Vendor</a></li>
+    <li><a href="supplier-login/index.html">Vendor Login</a></li>
+    <li><a href="contact/index.html">Contact Us</a></li>
+    </ul>
+    </div>
+    <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
+    <h4 class="widget-title">Categories</h4>
+    <ul class="footer-list mb-sm-5 mb-md-0">
+    <li><a href="shop/super/food-beverage.html">Food &amp; Beverage</a></li>
+    <li><a href="shop/super/beauty-fragrances.html">Beauty &amp; Fragrances</a></li>
+    <li><a href="shop/super/office-stationery.html">Office &amp; Stationery</a></li>
+    <li><a href="shop/super/consumer-electronics.html">Consumer Electronics</a></li>
+    <li><a href="shop/super/fashion-accessories.html">Fashion &amp; Accessories</a></li>
+    <li><a href="shop/super/home-furniture.html">Home &amp; Furniture</a></li>
+    <li><a href="shop/super/health-personal-care.html">Health &amp; Personal Care</a></li>
+    </ul>
+    </div>
+    <div class="footer-link-widget widget-install-app col wow animate__animated animate__fadeInUp" data-wow-delay=".4s">
+    <h4 class="widget-title">Install App</h4>
+    <p class="">From App Store or Google Play</p>
+    <div class="download-app">
+    <a href="#" class="hover-up mb-sm-2 mb-lg-0"><img class="active" src="{% static 'assets/imgs/theme/app-store.jpg' %}" alt="" /></a>
+    <a href="#" class="hover-up mb-sm-2"><img src="{% static 'assets/imgs/theme/google-play.jpg' %}" alt="" /></a>
+    </div>
+    <p class="mb-20">Secured Payment Gateways</p>
+    <img class="" src="{% static 'assets/imgs/theme/payment-method.png' %}" alt="" />
+    </div>
+    </div>
+    </section>
+    <div class="container pb-30 wow animate__animated animate__fadeInUp" data-wow-delay="0">
+
+    </footer>
+    <div id="preloader-active">
+    <div class="preloader d-flex align-items-center justify-content-center">
+    <div class="preloader-inner position-relative">
+    <div class="text-center">
+    <img src="{% static 'assets/imgs/theme/loading.gif' %}" alt="" />
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <script data-cfasync="false" src="{% static 'cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script><script src="{% static 'assets/js/vendor/modernizr-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-migrate-3.3.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/slick.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.syotimer.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/waypoints.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/wow.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/magnific-popup.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/select2.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/counterup.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/images-loaded.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/scrollup.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.vticker-min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.theia.sticky.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.elevatezoom.js' %}"></script>
+    
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/shop.js' %}"></script>
+    <script>
+                const formOne = document.querySelector(".selector-1");
+                const formTwo = document.querySelector(".selector-2");
+    
+                const subscribeInputOne = document.getElementById("subscribe-input-1");
+                const subscribeInputTwo = document.getElementById("subscribe-input-2");
+                const csrf = document.getElementsByName('csrfmiddlewaretoken');
+    
+                const boxMessage = document.getElementById("alert-container");
+                if(formOne){					
+                    formOne.addEventListener('submit', e =>{
+                            
+                            e.preventDefault();
+                            $.ajax({
+                                type: "POST",            
+                                url : "/letter/",
+                                data: {
+                                    'csrfmiddlewaretoken': csrf[0].value ,
+                                    'value':subscribeInputOne.value,
+                                        },
+                                success : function(response){
+                                        
+                                        boxMessage.classList.remove("not-visible")
+                                        boxMessage.innerHTML=`<div class="alert alert-${response.alert} alert-dismissible">	
+                                                                <i class="fi-rs-${response.mark} message-icon"></i>
+                                                                ${response.message}
+                                                                <span class="btn-close" data-bs-dismiss="alert" aria-label="close"></span>
+                                                            </div>`
+                                        setTimeout(()=>{
+                                            boxMessage.classList.add("not-visible")
+                                            subscribeInputOne.value=""
+                                        },3000)
+                                        },
+                                error : function(error){
+                                            
+                                            boxMessage.classList.remove("not-visible")
+                                            boxMessage.innerHTML=`<div class="alert alert-danger alert-dismissible">	
+                                                                <i class="fi-rs-cross message-icon"></i>
+                                                                Ops ... some thing went wrong !
+                                                                <span class="btn-close" data-bs-dismiss="alert" aria-label="close"></span>
+                                                            </div>`
+                                        setTimeout(()=>{
+                                            boxMessage.classList.add("not-visible")
+                                            subscribeInputOne.value=""
+                                        },2000)
+                                        },
+    
+    
+                            })  
+                                
+    
+                        }) 
+                }
+    
+    
+                if(formTwo){					
+                    formTwo.addEventListener('submit', e =>{
+                            
+                            e.preventDefault();
+                            $.ajax({
+                                type: "POST",            
+                                url : "/letter/",
+                                data: {
+                                    'csrfmiddlewaretoken': csrf[0].value ,
+                                    'value':subscribeInputTwo.value,
+                                        },
+                                success : function(response){
+                                        
+                                        boxMessage.classList.remove("not-visible")
+                                        boxMessage.innerHTML=`<div class="alert alert-${response.alert} alert-dismissible">	
+                                                                <i class="fi-rs-${response.mark} message-icon"></i>
+                                                                ${response.message}
+                                                                <span class="btn-close" data-bs-dismiss="alert" aria-label="close"></span>
+                                                            </div>`
+                                        setTimeout(()=>{
+                                            boxMessage.classList.add("not-visible")
+                                            subscribeInputTwo.value=""
+                                        },3000)
+                                        },
+                                error : function(error){
+                                            
+                                            boxMessage.classList.remove("not-visible")
+                                            boxMessage.innerHTML=`<div class="alert alert-danger alert-dismissible">	
+                                                                <i class="fi-rs-cross message-icon"></i>
+                                                                Ops ... some thing went wrong !
+                                                                <span class="btn-close" data-bs-dismiss="alert" aria-label="close"></span>
+                                                            </div>`
+                                        setTimeout(()=>{
+                                            boxMessage.classList.add("not-visible")
+                                            subscribeInputTwo.value=""
+                                        },2000)
+                                        },
+    
+    
+                            })  
+                                
+    
+                        }) 
+                }
+                
+        </script>
+    </body>
+    
+    <!-- Mirrored from nest.apexcode.info/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Dec 2022 05:14:14 GMT -->
+    </html>
+    
